@@ -1,0 +1,312 @@
+/*
+ * @theme youtube-theme
+ * @auto-scaling true
+ * YouTube recording slides theme
+ * Inspired by su8ru theme - Modern, clean design with gradient accents
+ */
+
+@import 'default';
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=JetBrains+Mono:wght@100..800&display=swap');
+
+/* ===== Color Variables (oklch) ===== */
+:root {
+    /* Primary colors - Blue to Cyan gradient */
+    --yt-main: oklch(0.50 0.14 255);
+    --yt-accent: oklch(0.55 0.16 255);
+    --yt-accent2: oklch(0.60 0.14 200);
+
+    /* Neutral colors */
+    --yt-white: oklch(0.97 0.005 250);
+    --yt-gray: oklch(0.55 0.02 250);
+    --yt-black: oklch(0.25 0.02 250);
+
+    /* Layout */
+    --content-padding: 80px;
+    --subtitle-space: 140px;
+}
+
+/* ===== Base Section ===== */
+section {
+    font-family: Inter, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+    --fontStack-monospace: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-size: 28px;
+
+    /* Background with geometric accents */
+    background:
+        /* Top-left triangle */
+        linear-gradient(135deg, oklch(0.55 0.16 255 / 0.10) 0%, oklch(0.55 0.16 255 / 0.05) 8%, transparent 15%),
+        /* Bottom-right triangle */
+        linear-gradient(-45deg, oklch(0.55 0.16 255 / 0.08) 0%, oklch(0.55 0.16 255 / 0.03) 6%, transparent 12%),
+        /* Base color */
+        var(--yt-white);
+    color: var(--yt-black);
+
+    height: 100%;
+    padding: 60px var(--content-padding) var(--subtitle-space) var(--content-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* ===== Page Numbers (hidden by default) ===== */
+section::after {
+    display: none;
+}
+
+
+/* ===== Headings ===== */
+h1 {
+    background-image: linear-gradient(
+        90deg,
+        var(--yt-accent) 0%,
+        var(--yt-accent2) 80%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+h2 {
+    color: var(--yt-main);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+h3 {
+    color: var(--yt-black);
+    margin-top: 0.8rem;
+    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* ===== Text Elements ===== */
+p, ul, ol {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    line-height: 1.7;
+}
+
+li + li,
+li > ul {
+    margin-top: 0.4rem;
+}
+
+li::marker {
+    color: var(--yt-gray);
+}
+
+strong {
+    font-weight: 700;
+    color: var(--yt-main);
+}
+
+em {
+    font-style: italic;
+    color: var(--yt-gray);
+}
+
+/* ===== Code ===== */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: oklch(0.92 0.01 250);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+pre, marp-pre {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    font-weight: 500;
+    background-color: oklch(0.92 0.01 250);
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    margin-top: 0.3rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 6px oklch(0.50 0.02 250 / 0.10);
+}
+
+/* ===== Blockquote ===== */
+blockquote {
+    color: var(--yt-gray);
+    border-left: 4px solid var(--yt-accent);
+    padding: 0.8rem 1.5rem;
+    margin: 1rem 0;
+    background-color: oklch(0.95 0.005 250);
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+/* ===== Tables ===== */
+table {
+    font-size: 0.9rem;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+table thead th {
+    background: var(--yt-accent);
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 1rem;
+    text-align: left;
+}
+
+table tbody td {
+    background-color: var(--yt-white);
+    color: var(--yt-black);
+    border-bottom: 1px solid oklch(0.9 0.01 250);
+    padding: 0.8rem 1rem;
+}
+
+table tbody tr:nth-child(even) td {
+    background-color: oklch(0.95 0.005 250);
+}
+
+/* ===== Links ===== */
+a {
+    color: var(--yt-accent);
+    text-decoration: none;
+}
+
+/* ===== Images ===== */
+img {
+    background: none !important;
+}
+
+/* ===== Grid Layouts ===== */
+.col2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.col3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.col2 > *,
+.col3 > * {
+    margin: 0;
+}
+
+/* ===== Title Slide ===== */
+section.title {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--content-padding);
+    background: linear-gradient(180deg, var(--yt-white) 0%, oklch(0.94 0.01 250) 100%);
+}
+
+section.title::after {
+    display: none;
+}
+
+section.title h1 {
+    background-image: linear-gradient(
+        90deg,
+        var(--yt-accent) 0%,
+        var(--yt-accent2) 80%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+section.title h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--yt-gray);
+    text-align: center;
+    margin-top: 0;
+}
+
+/* ===== Section Divider ===== */
+section.section {
+    background: linear-gradient(135deg, var(--yt-accent) 0%, var(--yt-accent2) 100%);
+    padding: 0 120px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+section.section::after {
+    display: none;
+}
+
+section.section h1,
+section.section h2 {
+    color: white;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    margin: 0;
+}
+
+section.section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* ===== Alignment Utilities ===== */
+section.align-center {
+    justify-content: center;
+}
+
+section.text-center {
+    text-align: center;
+}
+
+section.text-center h1 {
+    display: block;
+    width: 100%;
+}
+
+/* ===== Small Text Variant ===== */
+section.small-text {
+    font-size: 24px;
+}
+
+section.small-text h1 {
+    font-size: 1.8rem;
+}
+
+section.small-text h2 {
+    font-size: 1.3rem;
+}
+
+/* ===== No Header ===== */
+section.no-header {
+    padding-top: 40px;
+}
+
+/* ===== Subtitle Safe Zone ===== */
+section.subtitle-safe {
+    padding-bottom: 180px;
+}
